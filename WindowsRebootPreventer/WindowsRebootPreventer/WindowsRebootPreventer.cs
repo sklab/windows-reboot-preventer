@@ -19,8 +19,6 @@ namespace WindowsRebootPreventer
 
         private const string COUNTDOWN_MESSAGE = "Start reboot prevention after {0} second(s).";
 
-        private const int COUNTDONW_SECONDS = 10;
-
         private bool _skipCountdown = false;
         private int _duration = 0;
 
@@ -36,7 +34,6 @@ namespace WindowsRebootPreventer
 
         private void WindowsRebootPreventer_Activated(object sender, EventArgs e)
         {
-            _duration = COUNTDONW_SECONDS;
             timer1.Tick += Countdown;
             timer1.Start();
         }
@@ -66,7 +63,10 @@ namespace WindowsRebootPreventer
             notifyIcon1.Text = Application.ProductName;
             notifyIcon1.Visible = true;
 
-            lblMessage.Text = string.Format(COUNTDOWN_MESSAGE, COUNTDONW_SECONDS);
+            string waitTime = System.Configuration.ConfigurationManager.AppSettings.Get("WAIT_TIME");
+            _duration = int.Parse(waitTime);
+
+            lblMessage.Text = string.Format(COUNTDOWN_MESSAGE, _duration);
         }
 
         private void ShowSaveFileDialog()

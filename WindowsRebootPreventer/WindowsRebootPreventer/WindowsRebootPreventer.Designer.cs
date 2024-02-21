@@ -38,10 +38,10 @@
             // 
             // BtnStart
             // 
-            this.BtnStart.Location = new System.Drawing.Point(227, 223);
+            this.BtnStart.Location = new System.Drawing.Point(220, 210);
             this.BtnStart.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.BtnStart.Name = "BtnStart";
-            this.BtnStart.Size = new System.Drawing.Size(180, 112);
+            this.BtnStart.Size = new System.Drawing.Size(183, 91);
             this.BtnStart.TabIndex = 0;
             this.BtnStart.Text = "Start Now !";
             this.BtnStart.UseVisualStyleBackColor = true;
@@ -57,7 +57,7 @@
             // 
             this.lblMessage.Font = new System.Drawing.Font("Yu Gothic UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblMessage.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblMessage.Location = new System.Drawing.Point(-1, 123);
+            this.lblMessage.Location = new System.Drawing.Point(0, 88);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(622, 94);
             this.lblMessage.TabIndex = 1;

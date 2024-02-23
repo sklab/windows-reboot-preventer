@@ -14,12 +14,12 @@ And if there is no **active** logon user, there is no setting to suppress the re
 ~~The application prevents Windows reboots in a hackish way by displaying a '**Save As dialog**' in a hard-to-see location.~~
 (This way no longer works.)
 
-### The application prevents Windows reboots by Update 'Active Hours' per 6 hours.
+### The application prevents Windows reboot by Updating 'Active Hours' every 6 hours.
 
-The 'Active time' setting exists in the following paths in the registry.
+The 'Active hours' setting exists in the following paths in the registry.
 + HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings  
-**ActiveHoursStart**
-**ActiveHoursEnd** 
+**ActiveHoursStart**  
+**ActiveHoursEnd**  
 
 
 [Reference information]

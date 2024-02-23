@@ -11,7 +11,22 @@ It is not possible to set the active hours range to 24 hours.
 And if there is no **active** logon user, there is no setting to suppress the restart after Windows Update.  
 [(Microsoft Learn) Manage device restarts after updates](https://learn.microsoft.com/en-US/windows/deployment/update/waas-restart#delay-automatic-reboot)
 
-The application prevents Windows reboots in a hackish way by displaying a '**Save As dialog**' in a hard-to-see location.
+~~The application prevents Windows reboots in a hackish way by displaying a '**Save As dialog**' in a hard-to-see location.~~
+(This way no longer works.)
+
+### The application prevents Windows reboots by Update 'Active Hours' per 6 hours.
+
+The 'Active time' setting exists in the following paths in the registry.
++ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings  
+**ActiveHoursStart**
+**ActiveHoursEnd** 
+
+
+[Reference information]
+*Another way to prevent rebooting.*
++ Add [.disabled] extension for [Reboot_*] files of this directory.
+**C:\Windows\System32\Tasks\Microsoft\Windows\UpdateOrchestrator\**
+
 
 ## Requirements
 
@@ -19,10 +34,10 @@ The application prevents Windows reboots in a hackish way by displaying a '**Sav
 
 **.Net Framework** is already installed in the following versions of Windows.
 
-✔ Windows 11  
-✔ Windows 10  
-✔ Windows Server 2022  
-✔ Windows Server 2019  
++ [x] Windows 11  
++ [x] Windows 10  
++ [x] Windows Server 2022  
++ [x] Windows Server 2019  
 
 For more information, see the following link.  
 [(Microsoft Learn) .NET Framework versions and dependencies](https://learn.microsoft.com/en-us/dotnet/framework/migration-guide/versions-and-dependencies)

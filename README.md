@@ -24,9 +24,10 @@ The 'Active hours' setting exists in the following paths in the registry.
 
 [Reference information]
 *Another way to prevent rebooting.*
++ Disable the 'Windows Update' service. (not recommended)
 + Add [.disabled] extension for [Reboot_*] files of this directory.
 **C:\Windows\System32\Tasks\Microsoft\Windows\UpdateOrchestrator\**
-
+(I cannot guarantee how long it will work this way.)
 
 ## Requirements
 

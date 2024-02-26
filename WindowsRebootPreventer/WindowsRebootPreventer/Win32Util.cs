@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace WindowsRebootPreventer
 {
@@ -120,6 +123,60 @@ namespace WindowsRebootPreventer
         {
             IntPtr hWnd = GetWindow(caption);
             SetWindowPosition(hWnd, x, y);
+        }
+
+        /// <summary>
+        /// Check that the current user has the Administrator role.
+        /// </summary>
+        /// <returns>true if user has administrator role</returns>
+        public static bool hasAdminRole()
+        {
+            var identity = System.Security.Principal.WindowsIdentity.GetCurrent();
+            var principal = new System.Security.Principal.WindowsPrincipal(identity);
+            return principal.IsInRole(System.Security.Principal.WindowsBuiltInRole.Administrator);
+        }
+
+        /// <summary>
+        /// Check for current user can access registry.
+        /// </summary>
+        /// <returns>true if user can access registry</returns>
+        public static bool CanAccessRegistry()
+        {
+            const string DOT_NET_REG_KEY = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full";
+            const string DOT_NET_VERSION_REG_NAME = "Release";
+            try
+            {
+                var value = GetRegistryValue(DOT_NET_REG_KEY, DOT_NET_VERSION_REG_NAME);
+                if (string.IsNullOrEmpty(value)) return false;
+
+                Console.WriteLine(DateTime.Now.ToString() + " .net framework Release = " + value);
+            }
+            catch (SecurityException e) 
+            {
+                Console.WriteLine(DateTime.Now.ToString() + " SecurityException: " + e.Message);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Get value from Windows registory.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static string GetRegistryValue(string keyName, string valueName)
+        {
+            return Registry.GetValue(keyName, valueName, string.Empty).ToString();
+        }
+
+        /// <summary>
+        /// Get value from Windows registory.
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static void SetRegistryValue(string keyName, string valueName, object value)
+        {
+            Registry.SetValue(keyName, valueName, value);
         }
 
         #endregion

@@ -33,7 +33,8 @@
             this.BtnStart = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.lblMessage = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerCountdown = new System.Windows.Forms.Timer(this.components);
+            this.timerInterval = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // BtnStart
@@ -64,9 +65,9 @@
             this.lblMessage.Text = "Start reboot prevention after 5 seconds.";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
+            // timerCountdown
             // 
-            this.timer1.Interval = 1000;
+            this.timerCountdown.Interval = 1000;
             // 
             // WindowsRebootPreventer
             // 
@@ -93,7 +94,8 @@
         private System.Windows.Forms.Button BtnStart;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerCountdown;
+        private System.Windows.Forms.Timer timerInterval;
     }
 }
 

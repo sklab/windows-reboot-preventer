@@ -14,7 +14,7 @@ And if there is no **active** logon user, there is no setting to suppress the re
 ~~The application prevents Windows reboots in a hackish way by displaying a '**Save As dialog**' in a hard-to-see location.~~
 (This way no longer works.)
 
-### The application prevents Windows reboot by Updating 'Active Hours' every 6 hours.
+### The application prevents Windows reboot by Updating 'Active Hours' every 2 hours.
 
 The 'Active hours' setting exists in the following paths in the registry.
 + HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings  
@@ -45,9 +45,14 @@ For more information, see the following link.
 
 ## Usage
 
-To prevent a reboot, run this exe file.
+To prevent a reboot, run this exe file.  
+Then splash screen opens. (Closes automatically)  
+![Image1](/images/ss1.png)  
+This application runs in the background. It is displayed on the taskbar.  
+![Image2](/images/ss2.png)  
 
-To exit the application, right-click on the icon in the task tray and select "Exit".
+To exit the application, right-click on the icon in the taskbar and select "Exit".  
+![Image3](/images/ss3.png)  
 
 
 ## License
